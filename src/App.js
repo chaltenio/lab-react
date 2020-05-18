@@ -1,33 +1,48 @@
 import React, { Component } from 'react';
-import Articles from './components/Articles';
+import Products from './components/Products';
 
 import './App.css';
 
 class App extends Component {
-state = {
-  articles: [
-    {
-      id: 1,
-      description: 'Article 1',
-      bought: false
-    },
-    {
-      id: 2,
-      description: 'Article 2',
-      bought: true
-    },
-    {
-      id: 3,
-      description: 'Article 3',
-      bought: false
-    },        
-  ]
-}
+  state = {
+    products: [
+      {
+        id: 1,
+        description: 'Product 1',
+        bought: false
+      },
+      {
+        id: 2,
+        description: 'Product 2',
+        bought: true
+      },
+      {
+        id: 3,
+        description: 'Product 3',
+        bought: false
+      },        
+    ]
+  }
+
+  // Toggle Complete
+  markComplete = (id) => {
+    this.setState({ products: this.state.products.map(product => {
+      if(product.id === id) {
+        product.bought = !product.bought
+      }
+      return product;
+    }) });
+  }
+
+  // Delete Product
+  delProduct = (id) => {
+    this.setState({ products: [...this.state.products.filter(product => product.id !== id)] });
+  }
 
   render() {
     return (
       <div className="App">
-        <Articles articles={this.state.articles} />
+        <Products products={this.state.products} markComplete={this.markComplete} delProduct={this.delProduct}/>
       </div>
     );
   }
