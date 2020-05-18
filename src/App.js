@@ -1,18 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Articles from './components/Articles';
+
 import './App.css';
 
 class App extends Component {
+state = {
+  articles: [
+    {
+      id: 1,
+      description: 'Article 1',
+      bought: false
+    },
+    {
+      id: 2,
+      description: 'Article 2',
+      bought: true
+    },
+    {
+      id: 3,
+      description: 'Article 3',
+      bought: false
+    },        
+  ]
+}
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Articles articles={this.state.articles} />
       </div>
     );
   }
