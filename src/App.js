@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Header from './components/layout/Header';
 import Products from './components/Products';
+import AddProduct from './components/AddProduct';
 
 import './App.css';
 
@@ -42,7 +44,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Products products={this.state.products} markComplete={this.markComplete} delProduct={this.delProduct}/>
+        <div className="container">
+          <Header />
+          <AddProduct />
+          <Products products={this.state.products} markComplete={this.markComplete} delProduct={this.delProduct}/>
+        </div>
       </div>
     );
   }
