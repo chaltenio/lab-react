@@ -31,8 +31,13 @@ export class ProductItem extends Component {
 
 // PropTypes
 ProductItem.propTypes = {
-    product: PropTypes.object.isRequired
+    product: PropTypes.object.isRequired,
+    markComplete: PropTypes.func.isRequired,
+    delProduct: PropTypes.func.isRequired, 
 }
+
+
+
 
 const btnStyle = {
     background: '#ff0000',
