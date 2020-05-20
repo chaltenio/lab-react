@@ -17,7 +17,9 @@ class Products extends Component {
 
 // PropTypes
 Products.propTypes = {
-    products: PropTypes.array.isRequired
+    products: PropTypes.array.isRequired,
+    markComplete: PropTypes.func.isRequired,
+    delProduct: PropTypes.func.isRequired,    
 }
 
 export default Products;
